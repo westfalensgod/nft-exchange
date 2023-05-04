@@ -2,12 +2,13 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import {
   ReservoirKitProvider,
-  darkTheme,
+  darkTheme
 } from '@reservoir0x/reservoir-kit-ui'
 import {WagmiConfig, createClient} from 'wagmi'
 import {getDefaultProvider} from 'ethers'
 import App from './App.tsx'
 import './index.css'
+
 
 const theme = darkTheme({
   headlineFont: "Sans Serif",
@@ -29,9 +30,8 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
           id: 1,
           baseApiUrl: "https://api.reservoir.tools",
           default: true,
-          apiKey: process.env.API_KEY
+          apiKey: import.meta.env.VITE_API_KEY
         }],
-        source: "YOUR_SOURCE"
       }}
       theme={theme}
     >
