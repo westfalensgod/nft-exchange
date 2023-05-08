@@ -1,9 +1,10 @@
 /** @type {import('next').NextConfig} */
+const withTM = require('next-transpile-modules')([
+  '@reservoir0x/reservoir-kit-ui',
+]);
+
 const nextConfig = {
-  experimental: {
-    transpilePackages: ['@reservoir0x/reservoir-kit-ui'],
-  },
-  reactStrictMode: true
+  reactStrictMode: true,
 };
 
-module.exports = nextConfig;
+module.exports = withTM(nextConfig)
