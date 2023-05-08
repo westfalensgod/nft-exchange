@@ -2,11 +2,9 @@ import { ConnectButton } from '@rainbow-me/rainbowkit';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
-import {BuyModal, ListModal} from "@reservoir0x/reservoir-kit-ui";
-import {useState} from "react";
+import Link from "next/link";
 
 const Home: NextPage = () => {
-  const openState = useState(true)
   return (
     <div className={styles.container}>
       <Head>
@@ -20,45 +18,26 @@ const Home: NextPage = () => {
 
       <main className={styles.main}>
         <ConnectButton />
+        <h2>Modals</h2>
+        <nav style={{ display: 'flex', gap: 15 }}>
+          <Link href="/modal/buy">
+            <a>BuyModal</a>
+          </Link>
+          <Link href="/modal/list">
+            <a>ListModal</a>
+          </Link>
+        </nav>
 
-        <BuyModal trigger={<button>Buy</button>}   collectionId="0xf5de760f2e916647fd766b4ad9e85ff943ce3a2b"
-                  tokenId="0x00000"
-                  onPurchaseComplete={(data) => console.log('Purchase Complete')}
-                  onPurchaseError={(error, data) => console.log('Transaction Error', error, data)}
-                  onClose={(data, stepData, currentStep) => console.log('Modal Closed')} />
-        <ListModal
-          trigger={
-            <button>
-              List Item
-            </button>
-          }
-          collectionId="0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d"
-          tokenId="1"
-          currencies={[
-            {
-              contract: '0x0000000000000000000000000000000000000000',
-              symbol: 'ETH',
-            },
-            {
-              contract: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48',
-              symbol: 'USDC',
-              decimals: 6
-            },
-          ]}
-          openState={openState}
-          nativeOnly={false}
-          oracleEnabled={false}
-          onGoToToken={() => console.log('Awesome!')}
-          onListingComplete={(data) => {
-            console.log('Listing Complete', data)
-          }}
-          onListingError={(error, data) => {
-            console.log('Transaction Error', error, data)
-          }}
-          onClose={(data, stepData, currentStep) => {
-            console.log('ListModal Closed')
-          }}
-        />
+        <h1 className={styles.title}>
+          Welcome to <a href="">RainbowKit</a> + <a href="">wagmi</a> +{' '}
+          <a href="https://nextjs.org">Next.js!</a>
+        </h1>
+
+        <p className={styles.description}>
+          Get started by editing{' '}
+          <code className={styles.code}>pages/index.tsx</code>
+        </p>
+
       </main>
 
       <footer className={styles.footer}>

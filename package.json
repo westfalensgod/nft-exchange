@@ -8,14 +8,13 @@
     "start": "next start",
     "lint": "next lint"
   },
-  "prettier": {
-    "semi": false
-  },
   "dependencies": {
-    "@rainbow-me/rainbowkit": "^0.12.12",
-    "@reservoir0x/reservoir-kit-ui": "0.16.1",
+    "@radix-ui/colors": "^0.1.8",
+    "@rainbow-me/rainbowkit": "^0.12.13",
+    "@reservoir0x/reservoir-kit-ui": "^0.16.1",
     "ethers": "^5.0.0",
-    "next": "latest",
+    "next": "^12.1.6",
+    "next-transpile-modules": "^10.0.0",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "wagmi": "^0.12.0"
